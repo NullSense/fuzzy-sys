@@ -69,6 +69,7 @@ interactive() {
         status) sysstatus ;;
         edit) sysedit ;;
         enable) sysenable ;;
+        journal) journalf ;;
         disable) sysdisable
     esac
 }
