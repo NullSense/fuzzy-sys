@@ -59,6 +59,7 @@ interactive() {
     printf '\033[0;37m%s\033[0m\n' edit
     printf '\033[0;32m%s\033[0m\n' enable
     printf '\033[0;31m%s\033[0m\n' disable
+    printf '\033[0;36m%s\033[0m\n' journal
     ))
 
     case $mode in
