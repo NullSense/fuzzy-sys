@@ -46,7 +46,7 @@ If no options are given fully interactive mode is launched with system service u
     --edit      : systemctl edit --full <unit>
     --enable    : systemctl enable --now <unit>
     --disable   : systemctl disable --now <unit>
-    --journal   : journalctl -u <unit> -f
+    --journal   : journalctl -f -u <unit> 
     --help      : print this message and exit
 
 Examples:
