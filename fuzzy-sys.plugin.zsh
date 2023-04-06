@@ -12,6 +12,7 @@ If no options are given fully interactive mode is launched with system service u
     --edit      : systemctl edit --full <unit>
     --enable    : systemctl enable --now <unit>
     --disable   : systemctl disable --now <unit>
+    --journal   : systemctl journal <unit>
     --help      : print this message and exit
 
 Examples:
@@ -58,6 +59,7 @@ interactive() {
     printf '\033[0;37m%s\033[0m\n' edit
     printf '\033[0;32m%s\033[0m\n' enable
     printf '\033[0;31m%s\033[0m\n' disable
+    printf '\033[0;36m%s\033[0m\n' journal
     ))
 
     case $mode in
@@ -67,6 +69,7 @@ interactive() {
         status) sysstatus ;;
         edit) sysedit ;;
         enable) sysenable ;;
+        journal) journalf ;;
         disable) sysdisable
     esac
 }
@@ -149,6 +152,18 @@ sysdisable() {
         done
 }
 
+journalf() {
+    mode=$(promptmode)
+
+    systemctl "$mode" list-units --no-legend --type=service --state=running \
+        | preview_service "$mode" \
+        | while read -r unit && [ "$unit" ]; do
+            if _sudo journalctl "$mode" -u "$unit" -f; then
+                journalctl "$mode" -n20 -u "$unit" -f --no-pager
+            fi
+        done
+}
+
 super=system
 while :; do
     case $1 in
@@ -181,6 +196,10 @@ while :; do
          ;;
         --disable)
             sysdisable
+            break
+            ;;
+        --journal)
+            journalf
             break
             ;;
         -h|--help)

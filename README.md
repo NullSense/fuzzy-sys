@@ -46,11 +46,13 @@ If no options are given fully interactive mode is launched with system service u
     --edit      : systemctl edit --full <unit>
     --enable    : systemctl enable --now <unit>
     --disable   : systemctl disable --now <unit>
+    --journal   : journalctl -f -u <unit> 
     --help      : print this message and exit
 
 Examples:
     fuzzy-sys -u --edit    : edit a user service
     fuzzy-sys --start      : start a system service
+    fuzzy-sys --journal    : start tailing a system service journal
 ```
 
 ## Demo
