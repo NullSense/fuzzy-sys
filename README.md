@@ -60,4 +60,4 @@ Examples:
 
 ## Similar projects
 
-[sysz](https://raw.githubusercontent.com/joehillen/sysz/master/sysz) very well written and improved version of my script, good job :)
+[sysz](https://github.com/joehillen/sysz) very well written and improved version of my script, good job :)
