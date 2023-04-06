@@ -16,7 +16,6 @@ zgen load 'NullSense/fuzzy-sys'
 
 # for antigen
 antigen bundle 'NullSense/fuzzy-sys'
-
 # manually
 # Clone the repository and source it in your shell's rc file.
 ```
@@ -58,3 +57,7 @@ Examples:
 ## Demo
 
 [![asciicast](https://asciinema.org/a/390806.svg)](https://asciinema.org/a/390806)
+
+## Similar projects
+
+[sysz](https://raw.githubusercontent.com/joehillen/sysz/master/sysz) very well written and improved version of my script, good job :)
